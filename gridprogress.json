@@ -1,0 +1,119 @@
+{
+  "totalCompleted": 31,
+  "totalPossible": 48,
+  "percent": 64.6,
+
+  "months": [
+    {
+      "month": "January",
+      "completed": 41,
+      "remaining": 7,
+      "peaks": [
+        "Mount Washington",
+        "Mount Lafayette",
+        "Bondcliff"
+      ]
+    },
+
+    {
+      "month": "February",
+      "completed": 28,
+      "remaining": 20,
+      "peaks": [
+        "Mount Adams",
+        "Mount Jefferson"
+      ]
+    },
+
+    {
+      "month": "March",
+      "completed": 35,
+      "remaining": 13,
+      "peaks": [
+        "Mount Liberty",
+        "South Twin"
+      ]
+    },
+
+    {
+      "month": "April",
+      "completed": 22,
+      "remaining": 26,
+      "peaks": [
+        "Mount Garfield"
+      ]
+    },
+
+    {
+      "month": "May",
+      "completed": 30,
+      "remaining": 18,
+      "peaks": [
+        "Mount Moosilauke"
+      ]
+    },
+
+    {
+      "month": "June",
+      "completed": 40,
+      "remaining": 8,
+      "peaks": [
+        "Mount Isolation"
+      ]
+    },
+
+    {
+      "month": "July",
+      "completed": 45,
+      "remaining": 3,
+      "peaks": [
+        "Mount Monroe"
+      ]
+    },
+
+    {
+      "month": "August",
+      "completed": 38,
+      "remaining": 10,
+      "peaks": [
+        "Wildcat D"
+      ]
+    },
+
+    {
+      "month": "September",
+      "completed": 33,
+      "remaining": 15,
+      "peaks": [
+        "Carrigain"
+      ]
+    },
+
+    {
+      "month": "October",
+      "completed": 36,
+      "remaining": 12,
+      "peaks": [
+        "Mount Hale"
+      ]
+    },
+
+    {
+      "month": "November",
+      "completed": 24,
+      "remaining": 24,
+      "peaks": [
+        "Owls Head"
+      ]
+    },
+
+    {
+      "month": "December",
+      "completed": 29,
+      "remaining": 19,
+      "peaks": [
+        "Tecumseh"
+      ]
+    }
+  ]
+}

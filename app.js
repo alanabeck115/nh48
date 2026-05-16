@@ -25,3 +25,38 @@ async function loadPeaks() {
 }
 
 loadPeaks();
+
+async function loadGridProgress() {
+
+    const response =
+        await fetch("gridprogress.json");
+
+    const data = await response.json();
+
+    let html = "<table>";
+
+    html += `
+        <tr>
+            <th>Month</th>
+            <th>Completed</th>
+        </tr>
+    `;
+
+    data.months.forEach(m => {
+
+        html += `
+            <tr>
+                <td>${m.month}</td>
+                <td>${m.completed}/48</td>
+            </tr>
+        `;
+    });
+
+    html += "</table>";
+
+    document.getElementById(
+        "gridProgress"
+    ).innerHTML = html;
+}
+
+loadGridProgress();
