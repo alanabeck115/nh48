@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Mount Washington",
+    "elevation": 6288,
+    "date": "2025-07-14",
+    "winter": true
+  },
+  {
+    "name": "Mount Lafayette",
+    "elevation": 5260,
+    "date": "2024-09-20",
+    "winter": false
+  }
+]
