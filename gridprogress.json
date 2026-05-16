@@ -1,98 +1,101 @@
 {
-  "totalCompleted": 31,
-  "totalPossible": 48,
+  "totalCompleted": 556,
+  "totalPossible": 576,
   "percent": 64.6,
 
   "months": [
     {
       "month": "January",
-      "completed": 41,
-      "remaining": 7,
+      "completed": 45,
+      "remaining": 3,
       "peaks": [
-        "Mount Washington",
-        "Mount Lafayette",
-        "Bondcliff"
+        "Mount Jefferson",
+        "Mount Hale",
+        "Mount Zealand"
       ]
     },
 
     {
       "month": "February",
-      "completed": 28,
-      "remaining": 20,
+      "completed": 43,
+      "remaining": 5,
       "peaks": [
-        "Mount Adams",
-        "Mount Jefferson"
+        "Mount Cabot",
+        "Mount Bond",
+        "West Bond",
+        "Bondcliff",
+        "Owls Head"
       ]
     },
 
     {
       "month": "March",
-      "completed": 35,
-      "remaining": 13,
+      "completed": 48,
+      "remaining": 0,
       "peaks": [
-        "Mount Liberty",
-        "South Twin"
+        ""
       ]
     },
 
     {
       "month": "April",
-      "completed": 22,
-      "remaining": 26,
+      "completed": 46,
+      "remaining": 2,
       "peaks": [
-        "Mount Garfield"
+        "Mount Moriah",
+        "Mount Carragain"
       ]
     },
 
     {
       "month": "May",
-      "completed": 30,
-      "remaining": 18,
+      "completed": 48,
+      "remaining": 0,
       "peaks": [
-        "Mount Moosilauke"
+        ""
       ]
     },
 
     {
       "month": "June",
-      "completed": 40,
-      "remaining": 8,
+      "completed": 48,
+      "remaining": 0,
       "peaks": [
-        "Mount Isolation"
+        ""
       ]
     },
 
     {
       "month": "July",
-      "completed": 45,
-      "remaining": 3,
+      "completed": 48,
+      "remaining": 0,
       "peaks": [
-        "Mount Monroe"
+        ""
       ]
     },
 
     {
       "month": "August",
-      "completed": 38,
-      "remaining": 10,
+      "completed": 48,
+      "remaining": 0,
       "peaks": [
-        "Wildcat D"
+        ""
       ]
     },
 
     {
       "month": "September",
-      "completed": 33,
-      "remaining": 15,
+      "completed": 48,
+      "remaining": 0,
       "peaks": [
-        "Carrigain"
+        ""
       ]
     },
 
     {
       "month": "October",
-      "completed": 36,
-      "remaining": 12,
+      "completed": 48,
+      "remaining": 0,
       "peaks": [
         "Mount Hale"
       ]
@@ -100,19 +103,27 @@
 
     {
       "month": "November",
-      "completed": 24,
-      "remaining": 24,
+      "completed": 48,
+      "remaining": 0,
       "peaks": [
-        "Owls Head"
+        ""
       ]
     },
 
     {
       "month": "December",
-      "completed": 29,
-      "remaining": 19,
+      "completed": 38,
+      "remaining": 10,
       "peaks": [
-        "Tecumseh"
+        "Jefferson",
+        "Madison",
+        "Carrigain",
+        "Bond",
+        "West Bond",
+        "Bondcliff",
+        "Zealand",
+        "Moriah",
+        "Owls Head"
       ]
     }
   ]

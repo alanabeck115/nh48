@@ -1,53 +1,57 @@
-async function loadPeaks() {
-
-    const response = await fetch("mountains.json");
-
-    const peaks = await response.json();
-
-    const tbody = document.querySelector("#peakTable tbody");
-
-    peaks.forEach(peak => {
-
-        const row = document.createElement("tr");
-
-        row.innerHTML = `
-            <td>${peak.name}</td>
-            <td>${peak.elevation}</td>
-            <td>${peak.date}</td>
-            <td>${peak.winter ? "Yes" : "No"}</td>
-        `;
-
-        tbody.appendChild(row);
-    });
-
-    document.getElementById("summary").innerHTML =
-        `<h2>${peaks.length} Peaks Completed</h2>`;
-}
-
-loadPeaks();
-
 async function loadGridProgress() {
 
     const response =
         await fetch("gridprogress.json");
 
-    const data = await response.json();
+    const data =
+        await response.json();
 
-    let html = "<table>";
+    let html = "";
 
     html += `
-        <tr>
-            <th>Month</th>
-            <th>Completed</th>
-        </tr>
+        <h2>
+            Total Completed:
+            ${data.totalCompleted}
+            / ${data.totalPossible}
+        </h2>
+
+        <h3>
+            ${data.percent}% Complete
+        </h3>
     `;
 
-    data.months.forEach(m => {
+    html += `
+        <table>
+
+            <tr>
+                <th>Month</th>
+                <th>Completed</th>
+                <th>Remaining</th>
+                <th>Peaks Climbed</th>
+            </tr>
+    `;
+
+    data.months.forEach(month => {
 
         html += `
             <tr>
-                <td>${m.month}</td>
-                <td>${m.completed}/48</td>
+
+                <td>
+                    ${month.month}
+                </td>
+
+                <td>
+                    ${month.completed}/48
+                </td>
+
+                <td>
+                    ${month.remaining}
+                </td>
+
+                <td>
+                    ${month.peaks.join(", ")}
+                </td>
+
             </tr>
         `;
     });
