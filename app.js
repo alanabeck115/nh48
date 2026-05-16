@@ -27,7 +27,7 @@ async function loadGridProgress() {
                 <th>Month</th>
                 <th>Completed</th>
                 <th>Remaining</th>
-                <th>Peaks Climbed</th>
+                <th>Peaks Remaining</th>
             </tr>
     `;
 
