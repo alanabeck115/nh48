@@ -49,7 +49,11 @@ async function loadGridProgress() {
                 </td>
 
                 <td>
-                    ${month.peaks.join(", ")}
+                    ${
+                        month.remainingPeaks.length > 0
+                        ? month.remainingPeaks.join(", ")
+                        : "Complete"
+                    }
                 </td>
 
             </tr>
