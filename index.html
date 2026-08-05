@@ -3,7 +3,129 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alan Beck Hiking Blog entries</title>
+<title>Alan's Hiking Blog entries</title>
+
+<!-- NH48 Dashboard -->
+
+<style>
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.card {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,.15);
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #555;
+}
+
+.card .value {
+    font-size: 36px;
+    font-weight: bold;
+    color: #0066cc;
+    margin-top: 10px;
+}
+
+.card .sub {
+    margin-top: 5px;
+    color: #777;
+    font-size: 14px;
+}
+
+.dashboard-title {
+    text-align:center;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+</style>
+
+<div class="dashboard-title">
+    <h2>Hiking Dashboard</h2>
+</div>
+
+<div class="dashboard">
+
+    <div class="card">
+        <h3>NH48 Completed</h3>
+        <div class="value">48/48</div>
+        <div class="sub">Finished Sept 1992</div>
+    </div>
+
+    <div class="card">
+        <h3>Winter NH48</h3>
+        <div class="value">48/48</div>
+        <div class="sub">Finished March 2018</div>
+    </div>
+
+    <div class="card">
+        <h3>NH Grid</h3>
+        <div class="value">556</div>
+        <div class="sub">of 576 completed</div>
+    </div>
+
+    <div class="card">
+        <h3>NH Grid Completion</h3>
+        <div class="value">96.5%</div>
+        <div class="sub">20 remaining</div>
+    </div>
+
+    <div class="card">
+        <h3>NE67</h3>
+        <div class="value">67/67</div>
+        <div class="sub">Finished Sept 2004</div>
+    </div>
+
+    <div class="card">
+        <h3>NE100</h3>
+        <div class="value">100/100</div>
+        <div class="sub">Finished August 2012</div>
+    </div>
+
+    <div class="card">
+        <h3>NH52WAV</h3>
+        <div class="value">52/52</div>
+        <div class="sub">Finished Sept 2023</div>
+    </div>
+
+    <div class="card">
+        <h3>ADK46</h3>
+        <div class="value">46/46</div>
+        <div class="sub">Finished July 2020</div>
+    </div>
+
+    <div class="card">
+        <h3>AT Thru-Hike</h3>
+        <div class="value">2,190</div>
+        <div class="sub">Completed Sept 2003</div>
+    </div>
+    <div class="card">
+        <h3>Continents hiked</h3>
+        <div class="value">6/7</div>
+        <div class="sub">Antartica remaining</div>
+    </div>
+    <div class="card">
+        <h3>Highest Mountains</h3>
+        <div class="sub">Kilimanjaro (19340 ft)</div>
+        <div class="sub">Whitney (14505 ft)</div>
+	<div class="sub">Fuji (12389 ft)</div>
+    </div>
+    <div class="card">
+        <h3>Highest Mountains</h3>
+        <div class="sub">Kung Karpo (14272 ft)</div>
+        <div class="sub">Wildstrubel (10643 ft)</div>
+	<div class="sub">Zugspitze (9717 ft)</div>
+    </div>
+</div>
 
 <style>
 body {
@@ -50,13 +172,13 @@ a:hover {
 
 <body>
 
-<h1>Alan Beck's Hiking Blog</h1>
+<h1>Hiking Blog</h1>
 
 <div class="section">
     <h2>Mountain Lists</h2>
     <ul>
         <li><a href="myhikinglist.html">All Mountains Climbed in hiking lists</a></li>
-        <li><a href="nh48-progress.html">NH48 Grid Progress by Month</a></li>
+        <li><a href="nh48-progress.html">NH48 Grid Progress by Year</a></li>
         <li><a href="mountains_climbed_3plus.html">Mountains climbed 3 times or more</a></li>
         <li><a href="nh48-1980-2026.html">All NH48 mountains climbed</a></li>
     </ul>
@@ -72,7 +194,8 @@ a:hover {
 <div class="section">
     <h2>Journals</h2>
     <ul>
-        <li><a href="ATjournal.html">Appalachian Trail Journal</a></li>
+        <li><a href="https:/trailjournals.com/grizzly">Online AT journal (updated at libraries during hike)</a></li>
+	<li><a href="ATjournal.html">Appalachian Trail Journal</a></li>
         <li><a href="Adirondack46ers.html">Adirondack 46ers blog</a></li>
     </ul>
 </div>
