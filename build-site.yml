@@ -1,0 +1,51 @@
+name: Build NH48 Website
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout Repository
+        uses: actions/checkout@v6
+
+      - name: Setup Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Compile Java Reports
+        run: |
+          javac -d . *.java
+
+      - name: Generate Reports
+        run: |
+          java Mavenjava.companions
+          java Mavenjava.mylist
+          java Mavenjava.alanpeaks
+          java Mavenjava.gridmountainsleft
+          java Mavenjava.NH48HTMLexport
+
+      - name: Commit Updated Reports
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git add docs/*.html docs/*.json
+
+          git diff --staged --quiet || git commit -m "Auto-update hiking reports"
+
+          git push
