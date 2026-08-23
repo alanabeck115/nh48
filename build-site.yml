@@ -33,11 +33,11 @@ jobs:
 
       - name: Generate Reports
         run: |
-          java Mavenjava.companions
-          java Mavenjava.mylist
-          java Mavenjava.alanpeaks
-          java Mavenjava.gridmountainsleft
-          java Mavenjava.NH48HTMLexport
+          java companions
+          java mylist
+          java alanpeaks
+          java gridmountainsleft
+          java NH48HTMLexport
 
       - name: Commit Updated Reports
         run: |
