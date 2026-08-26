@@ -255,57 +255,56 @@ L.tileLayer(
 </script>
 
 <script>
-
 // NH48 Peaks (Blue)
 const peaks = [
-  { name:"Mount Washington", lat:44.2705, lon:-71.3033, elev:6288 },
-  { name:"Mount Adams", lat:44.3207, lon:-71.2912, elev:5774 },
-  { name:"Mount Jefferson", lat:44.3042, lon:-71.3168, elev:5712 },
-  { name:"Mount Monroe", lat:44.2550, lon:-71.3212, elev:5384 },
-  { name:"Mount Madison", lat:44.3288, lon:-71.2778, elev:5367 },
-  { name:"Mount Lafayette", lat:44.1607, lon:-71.6445, elev:5260 },
-  { name:"Mount Lincoln", lat:44.1488, lon:-71.6442, elev:5089 },
-  { name:"South Twin", lat:44.1876, lon:-71.5548, elev:4902 },
-  { name:"Carter Dome", lat:44.2673, lon:-71.1795, elev:4832 },
-  { name:"Mount Moosilauke", lat:44.0242, lon:-71.8309, elev:4802 },
-  { name:"Mount Eisenhower", lat:44.2403, lon:-71.3503, elev:4780 },
-  { name:"North Twin", lat:44.2020, lon:-71.5581, elev:4761 },
-  { name:"Mount Carrigain", lat:44.0937, lon:-71.4469, elev:4700 },
-  { name:"Mount Bond", lat:44.1528, lon:-71.5315, elev:4698 },
-  { name:"Middle Carter", lat:44.3034, lon:-71.1676, elev:4610 },
-  { name:"West Bond", lat:44.1548, lon:-71.5436, elev:4540 },
-  { name:"Mount Garfield", lat:44.1873, lon:-71.6103, elev:4500 },
-  { name:"Mount Liberty", lat:44.1158, lon:-71.6429, elev:4459 },
-  { name:"South Carter", lat:44.2898, lon:-71.1767, elev:4430 },
-  { name:"Wildcat A", lat:44.2594, lon:-71.2018, elev:4422 },
-  { name:"Mount Hancock", lat:44.0837, lon:-71.4931, elev:4420 },
-  { name:"South Kinsman", lat:44.1331, lon:-71.7360, elev:4358 },
-  { name:"Mount Field", lat:44.1962, lon:-71.4338, elev:4340 },
-  { name:"Mount Osceola", lat:44.0017, lon:-71.5357, elev:4340 },
-  { name:"Mount Flume", lat:44.1087, lon:-71.6287, elev:4328 },
-  { name:"South Hancock", lat:44.0613, lon:-71.4935, elev:4319 },
-  { name:"Mount Pierce", lat:44.2265, lon:-71.3657, elev:4310 },
-  { name:"North Kinsman", lat:44.1548, lon:-71.7366, elev:4293 },
-  { name:"Mount Willey", lat:44.1838, lon:-71.4217, elev:4285 },
-  { name:"Bondcliff", lat:44.1409, lon:-71.5310, elev:4265 },
-  { name:"Mount Zealand", lat:44.1798, lon:-71.5214, elev:4260 },
-  { name:"North Tripyramid", lat:43.9730, lon:-71.4428, elev:4180 },
-  { name:"Mount Cabot", lat:44.5048, lon:-71.4147, elev:4170 },
-  { name:"East Osceola", lat:44.0064, lon:-71.5208, elev:4156 },
-  { name:"Middle Tripyramid", lat:43.9647, lon:-71.4402, elev:4140 },
-  { name:"Cannon Mountain", lat:44.1561, lon:-71.6982, elev:4100 },
-  { name:"Mount Hale", lat:44.2215, lon:-71.5120, elev:4054 },
-  { name:"Mount Jackson", lat:44.2032, lon:-71.3759, elev:4052 },
-  { name:"Mount Tom", lat:44.2106, lon:-71.4451, elev:4051 },
-  { name:"Wildcat D", lat:44.2495, lon:-71.2231, elev:4050 },
-  { name:"Mount Moriah", lat:44.3401, lon:-71.1317, elev:4049 },
-  { name:"Mount Passaconaway", lat:43.9548, lon:-71.3817, elev:4043 },
-  { name:"Owl's Head", lat:44.0345, lon:-71.6052, elev:4025 },
-  { name:"Galehead Mountain", lat:44.1850, lon:-71.5730, elev:4024 },
-  { name:"Mount Whiteface", lat:43.9340, lon:-71.4066, elev:4020 },
-  { name:"Mount Waumbek", lat:44.4327, lon:-71.4175, elev:4006 },
-  { name:"Mount Isolation", lat:44.2146, lon:-71.3090, elev:4004 },
-  { name:"Mount Tecumseh", lat:43.9672, lon:-71.5580, elev:4003 }
+  { name: "Mount Washington", lat: 44.2705, lon: -71.3033, elev: 6288 },
+  { name: "Mount Adams", lat: 44.3207, lon: -71.2912, elev: 5774 },
+  { name: "Mount Jefferson", lat: 44.3042, lon: -71.3168, elev: 5712 },
+  { name: "Mount Monroe", lat: 44.2550, lon: -71.3212, elev: 5384 },
+  { name: "Mount Madison", lat: 44.3288, lon: -71.2778, elev: 5367 },
+  { name: "Mount Lafayette", lat: 44.1607, lon: -71.6445, elev: 5260 },
+  { name: "Mount Lincoln", lat: 44.1488, lon: -71.6442, elev: 5089 },
+  { name: "South Twin", lat: 44.1876, lon: -71.5548, elev: 4902 },
+  { name: "Carter Dome", lat: 44.2673, lon: -71.1795, elev: 4832 },
+  { name: "Mount Moosilauke", lat: 44.0242, lon: -71.8309, elev: 4802 },
+  { name: "Mount Eisenhower", lat: 44.2403, lon: -71.3503, elev: 4780 },
+  { name: "North Twin", lat: 44.2020, lon: -71.5581, elev: 4761 },
+  { name: "Mount Carrigain", lat: 44.0937, lon: -71.4469, elev: 4700 },
+  { name: "Mount Bond", lat: 44.1528, lon: -71.5315, elev: 4698 },
+  { name: "Middle Carter", lat: 44.3034, lon: -71.1676, elev: 4610 },
+  { name: "West Bond", lat: 44.1548, lon: -71.5436, elev: 4540 },
+  { name: "Mount Garfield", lat: 44.1873, lon: -71.6103, elev: 4500 },
+  { name: "Mount Liberty", lat: 44.1158, lon: -71.6429, elev: 4459 },
+  { name: "South Carter", lat: 44.2898, lon: -71.1767, elev: 4430 },
+  { name: "Wildcat A", lat: 44.2594, lon: -71.2018, elev: 4422 },
+  { name: "Mount Hancock", lat: 44.0837, lon: -71.4931, elev: 4420 },
+  { name: "South Kinsman", lat: 44.1331, lon: -71.7360, elev: 4358 },
+  { name: "Mount Field", lat: 44.1962, lon: -71.4338, elev: 4340 },
+  { name: "Mount Osceola", lat: 44.0017, lon: -71.5357, elev: 4340 },
+  { name: "Mount Flume", lat: 44.1087, lon: -71.6287, elev: 4328 },
+  { name: "South Hancock", lat: 44.0613, lon: -71.4935, elev: 4319 },
+  { name: "Mount Pierce", lat: 44.2265, lon: -71.3657, elev: 4310 },
+  { name: "North Kinsman", lat: 44.1548, lon: -71.7366, elev: 4293 },
+  { name: "Mount Willey", lat: 44.1838, lon: -71.4217, elev: 4285 },
+  { name: "Bondcliff", lat: 44.1409, lon: -71.5310, elev: 4265 },
+  { name: "Mount Zealand", lat: 44.1798, lon: -71.5214, elev: 4260 },
+  { name: "North Tripyramid", lat: 43.9730, lon: -71.4428, elev: 4180 },
+  { name: "Mount Cabot", lat: 44.5048, lon: -71.4147, elev: 4170 },
+  { name: "East Osceola", lat: 44.0064, lon: -71.5208, elev: 4156 },
+  { name: "Middle Tripyramid", lat: 43.9647, lon: -71.4402, elev: 4140 },
+  { name: "Cannon Mountain", lat: 44.1561, lon: -71.6982, elev: 4100 },
+  { name: "Mount Hale", lat: 44.2215, lon: -71.5120, elev: 4054 },
+  { name: "Mount Jackson", lat: 44.2032, lon: -71.3759, elev: 4052 },
+  { name: "Mount Tom", lat: 44.2106, lon: -71.4451, elev: 4051 },
+  { name: "Wildcat D", lat: 44.2495, lon: -71.2231, elev: 4050 },
+  { name: "Mount Moriah", lat: 44.3401, lon: -71.1317, elev: 4049 },
+  { name: "Mount Passaconaway", lat: 43.9548, lon: -71.3817, elev: 4043 },
+  { name: "Owl's Head", lat: 44.0345, lon: -71.6052, elev: 4025 },
+  { name: "Galehead Mountain", lat: 44.1850, lon: -71.5730, elev: 4024 },
+  { name: "Mount Whiteface", lat: 43.9340, lon: -71.4066, elev: 4020 },
+  { name: "Mount Waumbek", lat: 44.4327, lon: -71.4175, elev: 4006 },
+  { name: "Mount Isolation", lat: 44.2146, lon: -71.3090, elev: 4004 },
+  { name: "Mount Tecumseh", lat: 43.9672, lon: -71.5580, elev: 4003 }
 ];
 
 peaks.forEach(peak => {
@@ -322,28 +321,27 @@ peaks.forEach(peak => {
   );
 });
 
-
 // NE67 additional peaks
 const ne67Extra = [
-  { name:"Katahdin Baxter Peak", lat:45.9044, lon:-68.9213, elev:5268 },
-  { name:"Katahdin Hamlin Peak", lat:45.9234, lon:-68.9124, elev:4756 },
-  { name:"Mount Mansfield", lat:44.5438, lon:-72.8143, elev:4393 },
-  { name:"Sugarloaf", lat:45.0318, lon:-70.3131, elev:4250 },
-  { name:"Killington Peak", lat:43.6045, lon:-72.8204, elev:4235 },
-  { name:"Crocker Mountain", lat:45.0478, lon:-70.3764, elev:4228 },
-  { name:"Old Speck", lat:44.5703, lon:-70.9520, elev:4170 },
-  { name:"North Brother", lat:45.9550, lon:-68.9850, elev:4151 },
-  { name:"Bigelow West Peak", lat:45.1469, lon:-70.3042, elev:4145 },
-  { name:"Saddleback", lat:44.9365, lon:-70.4955, elev:4120 },
-  { name:"Bigelow Avery Peak", lat:45.1461, lon:-70.2824, elev:4090 },
-  { name:"Camel's Hump", lat:44.3195, lon:-72.8865, elev:4083 },
-  { name:"Mount Abraham", lat:44.1170, lon:-70.2455, elev:4050 },
-  { name:"South Crocker", lat:45.0372, lon:-70.3820, elev:4050 },
-  { name:"Saddleback Horn", lat:44.9497, lon:-70.4815, elev:4041 },
-  { name:"Mount Redington", lat:45.0205, lon:-70.3995, elev:4010 },
-  { name:"Spaulding Mountain", lat:45.0437, lon:-70.4127, elev:4010 },
-  { name:"Mount Ellen", lat:44.1606, lon:-72.9346, elev:4083 },
-  { name:"Jay Peak", lat:44.9231, lon:-72.5324, elev:3968 }
+  { name: "Katahdin Baxter Peak", lat: 45.9044, lon: -68.9213, elev: 5268 },
+  { name: "Katahdin Hamlin Peak", lat: 45.9234, lon: -68.9124, elev: 4756 },
+  { name: "Mount Mansfield", lat: 44.5438, lon: -72.8143, elev: 4393 },
+  { name: "Sugarloaf", lat: 45.0318, lon: -70.3131, elev: 4250 },
+  { name: "Killington Peak", lat: 43.6045, lon: -72.8204, elev: 4235 },
+  { name: "Crocker Mountain", lat: 45.0478, lon: -70.3764, elev: 4228 },
+  { name: "Old Speck", lat: 44.5703, lon: -70.9520, elev: 4170 },
+  { name: "North Brother", lat: 45.9550, lon: -68.9850, elev: 4151 },
+  { name: "Bigelow West Peak", lat: 45.1469, lon: -70.3042, elev: 4145 },
+  { name: "Saddleback", lat: 44.9365, lon: -70.4955, elev: 4120 },
+  { name: "Bigelow Avery Peak", lat: 45.1461, lon: -70.2824, elev: 4090 },
+  { name: "Camel's Hump", lat: 44.3195, lon: -72.8865, elev: 4083 },
+  { name: "Mount Abraham", lat: 44.9723, lon: -70.3262, elev: 4050 },
+  { name: "South Crocker", lat: 45.0372, lon: -70.3820, elev: 4050 },
+  { name: "Saddleback Horn", lat: 44.9497, lon: -70.4815, elev: 4041 },
+  { name: "Mount Redington", lat: 45.0205, lon: -70.3995, elev: 4010 },
+  { name: "Spaulding Mountain", lat: 45.0437, lon: -70.4127, elev: 4010 },
+  { name: "Mount Ellen", lat: 44.1606, lon: -72.9346, elev: 4083 },
+  { name: "Jay Peak", lat: 44.9231, lon: -72.5324, elev: 3968 }
 ];
 
 ne67Extra.forEach(p => {
@@ -360,22 +358,56 @@ ne67Extra.forEach(p => {
   );
 });
 
-
 // ADK46
-const adk46 = [
-  { name:"Mount Marcy", lat:44.1128, lon:-73.9237, elev:5344 },
-  { name:"Algonquin Peak", lat:44.1436, lon:-73.9868, elev:5114 },
-  { name:"Mount Haystack", lat:44.1059, lon:-73.9009, elev:4960 },
-  { name:"Mount Skylight", lat:44.0998, lon:-73.9317, elev:4926 },
-  { name:"Whiteface Mountain", lat:44.3659, lon:-73.9026, elev:4867 },
-  { name:"Dix Mountain", lat:44.0826, lon:-73.7865, elev:4857 },
-  { name:"Gray Peak", lat:44.1110, lon:-73.9360, elev:4840 },
-  { name:"Iroquois Peak", lat:44.1366, lon:-73.9987, elev:4840 },
-  { name:"Basin Mountain", lat:44.1216, lon:-73.8752, elev:4827 },
-  { name:"Gothics", lat:44.1275, lon:-73.8577, elev:4736 }
+const adk46Peaks = [
+  { name: "Mount Marcy", lat: 44.1127, lon: -73.9237, elev: 5344 },
+  { name: "Algonquin Peak", lat: 44.1436, lon: -73.9867, elev: 5114 },
+  { name: "Mount Haystack", lat: 44.1056, lon: -73.9006, elev: 4960 },
+  { name: "Mount Skylight", lat: 44.0994, lon: -73.9308, elev: 4926 },
+  { name: "Whiteface Mountain", lat: 44.3658, lon: -73.9028, elev: 4867 },
+  { name: "Dix Mountain", lat: 44.0822, lon: -73.7864, elev: 4857 },
+  { name: "Gray Peak", lat: 44.1114, lon: -73.9349, elev: 4840 },
+  { name: "Iroquois Peak", lat: 44.1370, lon: -73.9982, elev: 4840 },
+  { name: "Basin Mountain", lat: 44.1212, lon: -73.8863, elev: 4827 },
+  { name: "Gothics", lat: 44.1281, lon: -73.8571, elev: 4736 },
+  { name: "Mount Colden", lat: 44.1270, lon: -73.9599, elev: 4714 },
+  { name: "Giant Mountain", lat: 44.1611, lon: -73.7202, elev: 4627 },
+  { name: "Nippletop", lat: 44.0892, lon: -73.8163, elev: 4620 },
+  { name: "Santanoni Peak", lat: 44.0825, lon: -74.1312, elev: 4607 },
+  { name: "Mount Redfield", lat: 44.0948, lon: -73.9499, elev: 4606 },
+  { name: "Wright Peak", lat: 44.1517, lon: -73.9803, elev: 4580 },
+  { name: "Saddleback Mountain", lat: 44.1267, lon: -73.8752, elev: 4515 },
+  { name: "Panther Peak", lat: 44.0984, lon: -74.1321, elev: 4442 },
+  { name: "Table Top", lat: 44.1407, lon: -73.9163, elev: 4427 },
+  { name: "Rocky Peak Ridge", lat: 44.1544, lon: -73.7056, elev: 4420 },
+  { name: "Macomb Mountain", lat: 44.0517, lon: -73.7801, elev: 4405 },
+  { name: "Armstrong Mountain", lat: 44.1348, lon: -73.8490, elev: 4400 },
+  { name: "Hough Peak", lat: 44.0695, lon: -73.7776, elev: 4400 },
+  { name: "Seward Mountain", lat: 44.1597, lon: -74.1997, elev: 4361 },
+  { name: "Marshall", lat: 44.1523, lon: -74.0115, elev: 4360 },
+  { name: "Allen Mountain", lat: 44.0709, lon: -73.9394, elev: 4340 },
+  { name: "Big Slide", lat: 44.1837, lon: -73.8707, elev: 4240 },
+  { name: "Esther Mountain", lat: 44.3770, lon: -73.8894, elev: 4240 },
+  { name: "Upper Wolfjaw", lat: 44.1408, lon: -73.8450, elev: 4185 },
+  { name: "Lower Wolfjaw", lat: 44.1484, lon: -73.8327, elev: 4175 },
+  { name: "Street Mountain", lat: 44.1793, lon: -74.0272, elev: 4166 },
+  { name: "Phelps Mountain", lat: 44.1570, lon: -73.9215, elev: 4161 },
+  { name: "Donaldson Mountain", lat: 44.1539, lon: -74.2110, elev: 4140 },
+  { name: "Seymour Mountain", lat: 44.1582, lon: -74.1727, elev: 4120 },
+  { name: "Sawteeth", lat: 44.1133, lon: -73.8507, elev: 4100 },
+  { name: "Cascade Mountain", lat: 44.2186, lon: -73.8606, elev: 4098 },
+  { name: "Porter Mountain", lat: 44.2153, lon: -73.8436, elev: 4059 },
+  { name: "Mount Colvin", lat: 44.0939, lon: -73.8344, elev: 4057 },
+  { name: "Mount Emmons", lat: 44.1437, lon: -74.2140, elev: 4040 },
+  { name: "Dial Mountain", lat: 44.1059, lon: -73.7960, elev: 4020 },
+  { name: "Grace Peak", lat: 44.0653, lon: -73.7574, elev: 4012 },
+  { name: "Blake Peak", lat: 44.0822, lon: -73.8431, elev: 3960 },
+  { name: "Cliff Mountain", lat: 44.1006, lon: -73.9575, elev: 3960 },
+  { name: "Nye Mountain", lat: 44.1867, lon: -74.0375, elev: 3895 },
+  { name: "Couchsachraga Peak", lat: 44.0944, lon: -74.1611, elev: 3820 }
 ];
 
-adk46.forEach(p => {
+adk46Peaks.forEach(p => {
   L.circleMarker([p.lat, p.lon], {
     radius: 6,
     color: 'purple',
@@ -389,20 +421,47 @@ adk46.forEach(p => {
   );
 });
 
-
-// NE100 additional peaks
+// NE100 additional peaks array definition added to prevent execution errors
+// NE100 additional peaks (33 peaks to complete the New England Hundred Highest)
 const ne100Extra = [
-  { name:"Vose Spur", lat:44.1526, lon:-71.3906, elev:3862 },
-  { name:"East Sleeper", lat:43.9070, lon:-71.4450, elev:3850 },
-  { name:"Scar Ridge", lat:44.0015, lon:-71.5058, elev:3780 },
-  { name:"The Horn", lat:44.1580, lon:-71.4650, elev:3905 },
-  { name:"Nancy", lat:43.9957, lon:-71.3225, elev:3926 },
-  { name:"Sandwich Dome", lat:43.8996, lon:-71.4983, elev:3980 },
-  { name:"South Weeks", lat:44.4447, lon:-71.0565, elev:3885 },
-  { name:"Mount Weeks", lat:44.4560, lon:-71.0470, elev:3901 },
-  { name:"Peak Above The Nubble", lat:44.2740, lon:-71.3710, elev:3813 },
-  { name:"The Bulge", lat:44.2040, lon:-71.3900, elev:3950 },
-  { name:"Northeast Cannonball", lat:44.1674, lon:-71.7068, elev:3769 }
+  // Vermont (5 peaks)
+  { name: "Equinox Mountain", lat: 43.1678, lon: -73.1114, elev: 3848 },
+  { name: "Mendon Peak", lat: 43.5936, lon: -72.8551, elev: 3840 },
+  { name: "Mount Peak (Granville)", lat: 43.9786, lon: -72.8598, elev: 3804 },
+  { name: "Dorset Peak", lat: 43.3134, lon: -73.0039, elev: 3770 },
+  { name: "Mount Ellen South (Abraham Trail)", lat: 44.1368, lon: -72.9304, elev: 3750 },
+
+  // Maine (14 peaks)
+  { name: "Mount Coe", lat: 45.9220, lon: -69.0069, elev: 3795 },
+  { name: "East Mount Redington", lat: 45.0270, lon: -70.3835, elev: 3784 },
+  { name: "East Saddleback (The Horn)", lat: 44.9545, lon: -70.4705, elev: 3780 },
+  { name: "Snow Mountain", lat: 45.2422, lon: -70.6725, elev: 3780 },
+  { name: "Elephant Mountain", lat: 44.7570, lon: -70.7818, elev: 3772 },
+  { name: "Fort Mountain", lat: 45.9612, lon: -68.9772, elev: 3766 },
+  { name: "Baker Mountain", lat: 45.5786, lon: -69.4184, elev: 3520 },
+  { name: "Mount White Cap", lat: 45.5492, lon: -69.2514, elev: 3654 },
+  { name: "Kennebago Divide Mountain", lat: 45.1973, lon: -70.7675, elev: 3775 },
+  { name: "Mount Abraham South", lat: 44.9723, lon: -70.3262, elev: 3760 },
+  { name: "Boundary Peak", lat: 45.3670, lon: -70.8931, elev: 3855 },
+  { name: "Boott Spur", lat: 44.2586, lon: -71.2961, elev: 5500 },
+  { name: "Doubletop Mountain", lat: 45.9080, lon: -69.0435, elev: 3489 },
+  { name: "Barren Mountain", lat: 45.4410, lon: -69.4635, elev: 3670 },
+
+  // New Hampshire (14 peaks)
+  { name: "Mount Blue (Benton)", lat: 44.0298, lon: -71.8021, elev: 3729 },
+  { name: "Mount Nancy", lat: 44.1265, lon: -71.4334, elev: 3926 },
+  { name: "Vose Spur", lat: 44.0884, lon: -71.4359, elev: 3862 },
+  { name: "Mount Lowell", lat: 44.1132, lon: -71.4116, elev: 3740 },
+  { name: "Mount Resolution", lat: 44.1287, lon: -71.3789, elev: 3415 },
+  { name: "Scar Ridge", lat: 44.0415, lon: -71.6062, elev: 3774 },
+  { name: "Middle Sandwich Peak", lat: 43.9012, lon: -71.4876, elev: 3760 },
+  { name: "Jennings Peak", lat: 43.9168, lon: -71.5032, elev: 3440 },
+  { name: "Shelburne Mountain", lat: 44.3812, lon: -71.0542, elev: 3730 },
+  { name: "Sleepers Mountain (South)", lat: 43.9405, lon: -71.4550, elev: 3860 },
+  { name: "Mount Success", lat: 44.4735, lon: -71.0425, elev: 3565 },
+  { name: "Kearsarge North", lat: 44.0970, lon: -71.0945, elev: 3268 },
+  { name: "Mount Stinson", lat: 43.8340, lon: -71.7820, elev: 2900 },
+  { name: "Mount Crawford", lat: 44.1432, lon: -71.3475, elev: 3129 }
 ];
 
 ne100Extra.forEach(p => {
@@ -419,9 +478,55 @@ ne100Extra.forEach(p => {
   );
 });
 
+// Catskill peaks needed for NE111
+const ne111ExtraPeaks = [
+  { name: "Slide Mountain", lat: 42.0087, lon: -74.3871, elev: 4180 },
+  { name: "Hunter Mountain", lat: 42.1795, lon: -74.2246, elev: 4040 }
+];
+
+ne111ExtraPeaks.forEach(p => {
+  L.circleMarker([p.lat, p.lon], {
+    radius: 6,
+    color: 'gold',
+    fillColor: 'gold',
+    fillOpacity: 0.8
+  })
+  .addTo(map)
+  .bindTooltip(
+    `<b>${p.name}</b><br>${p.elev} ft<br>NE111`,
+    { direction: 'top', sticky: true }
+  );
+});
+
+// NH52WAV Peaks (Orange)
+const wav52Peaks = [
+  { name: "Mount Cardigan", lat: 43.6493, lon: -71.9138, elev: 3155 },
+  { name: "Mount Cube", lat: 43.8894, lon: -72.0388, elev: 2909 },
+  { name: "Mount Chocorua", lat: 43.9542, lon: -71.2731, elev: 3490 },
+  { name: "Mount Monadnock", lat: 42.8615, lon: -72.1087, elev: 3165 },
+  { name: "Mount Shaw", lat: 43.7490, lon: -71.2730, elev: 2990 },
+  { name: "Mount Kearsarge", lat: 43.3798, lon: -71.8516, elev: 2937 },
+  { name: "Eastman Mountain", lat: 43.8848, lon: -71.3545, elev: 2939 },
+  { name: "Mount Israel", lat: 43.8054, lon: -71.5335, elev: 2630 },
+  { name: "Mount Pemigewasset", lat: 44.0418, lon: -71.6705, elev: 2557 },
+  { name: "Middle Sugarloaf", lat: 44.2392, lon: -71.4323, elev: 2539 }
+];
+
+wav52Peaks.forEach(p => {
+  L.circleMarker([p.lat, p.lon], {
+    radius: 6,
+    color: 'orange',
+    fillColor: 'orange',
+    fillOpacity: 0.8
+  })
+  .addTo(map)
+  .bindTooltip(
+    `<b>${p.name}</b><br>${p.elev} ft<br>NH52WAV`,
+    { direction: 'top', sticky: true }
+  );
+});
+
 </script>
-
-
 <!-- MAP LEGEND -->
 <div class="legend">
   <span style="color:blue;">●</span> NH48
@@ -431,6 +536,10 @@ ne100Extra.forEach(p => {
   <span style="color:red;">●</span> NE100
   &nbsp;&nbsp;
   <span style="color:purple;">●</span> ADK46
+ &nbsp;&nbsp;
+  <span style="color:gold;">●</span> NE111
+&nbsp;&nbsp;
+  <span style="color:orange;">●</span> 52WAV
 </div>
 
 
