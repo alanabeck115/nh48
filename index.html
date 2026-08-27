@@ -238,7 +238,7 @@ href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
-<h2>Map of List Peaks Climbed</h2>
+<h2>Map of List Hikes</h2>
 
 <div id="map" style="height:600px;"></div>
 
@@ -778,10 +778,13 @@ const atCoordinates = [
     [43.1700, -72.9300], // Stratton Mountain
     [43.2500, -72.9000],
     [43.3500, -72.8500],
-    [43.4800, -72.8300], // Killington
     [43.5200, -72.9300], // Clarendon Gorge
+    [43.6045, -72.8204], // Killington
+    [43.6747, -72.8392], // Maine Junction
+    [43.6686, -72.7954],   // Gifford Woods Campground
     [43.6500, -72.8000], // Thundering Falls
-    [43.8000, -72.7000], // Woodstock area
+    //[43.8000, -72.7000], // Woodstock area
+    [43.7167, -72.4214],  // West Hartford, VT
 
     // =========================
     // NEW HAMPSHIRE
@@ -836,7 +839,95 @@ const atLayer = L.polyline(atCoordinates, {
     weight: 4,
     opacity: 0.9
 }).addTo(map);
+
+// Appalachian Trail label
+atLayer.bindTooltip("Appalachian Trail", {
+    sticky: true
+});
+
+// Long Trail — Killington to U.S./Canada Border
+// Northbound waypoints
+const longTrailCoordinates= [
+
+    // Killington / US-4
+    { name:"US-4 / Long Trail", lat:43.6667, lon:-72.8499 },
+    { name:"Willard Gap", lat:43.6747, lon:-72.8392 },
+    { name:"Maine Junction", lat:43.6747, lon:-72.8392 },
+    { name:"Tucker Johnson Shelter", lat:43.6792, lon:-72.8431 },
+
+    // Central Vermont
+    { name:"Ralston Rest Shelter", lat:43.7128, lon:-72.8616 },
+    { name:"Telephone Gap", lat:43.7599, lon:-72.9018 },
+    { name:"David Logan Shelter", lat:43.7692, lon:-72.9212 },
+    { name:"Bloodroot Gap", lat:43.8019, lon:-72.9427 },
+    { name:"Brandon Gap", lat:43.8399, lon:-72.9684 },
+    { name:"Sunrise Shelter", lat:43.8320, lon:-72.9602 },
+
+    // Breadloaf / Lincoln area
+    { name:"Mount Horrid", lat:44.0000, lon:-72.9400 },
+    //{ name:"Middlebury Snow Bowl", lat:44.0000, lon:-73.0000 },
+    { name:"Mount Breadloaf", lat: 43.9962, lon: -72.9365 },
+    { name:"Mount Wilson", lat: 44.0134, lon: -72.9351 },
+    { name:"Mount Roosevelt", lat:44.1800, lon:-72.9200 },
+    { name:"Mount Cleveland", lat:44.1900, lon:-72.9100 },
+    { name:"Mount Ellen", lat: 44.1606, lon: -72.9346 },
+    { name:"Mount Abraham", lat:44.1180, lon:-72.9280 },
+
+    // Camel's Hump / Winooski
+    { name:"Camel's Hump", lat:44.3206, lon:-72.8868 },
+    { name:"Bamforth Ridge Shelter", lat:44.3070, lon:-72.8880 },
+
+    // Mount Mansfield
+    { name:"Smuggler's Notch", lat:44.5560, lon:-72.7730 },
+    { name:"Sterling Pond", lat:44.5561, lon:-72.7744 },
+    { name:"Sterling Mountain", lat:44.5430, lon:-72.7350 },
+    { name:"Mount Mansfield — Nose", lat:44.5262, lon:-72.8151 },
+    { name:"Mount Mansfield — Forehead", lat:44.5212, lon:-72.8179 },
+    { name:"Mount Mansfield — Chin", lat:44.5437, lon:-72.8143 },
+    { name:"Taft Lodge", lat:44.5426, lon:-72.8096 },
+
+    // Northern Vermont
+    { name:"Route 108", lat:44.5540, lon:-72.6000 },
+    { name:"Buchanan Shelter", lat:44.7200, lon:-72.6500 },
+    { name:"Hazen's Notch", lat:44.8200, lon:-72.5600 },
+    { name:"Bruce Peak", lat:44.8500, lon:-72.5400 },
+    { name:"Buchanan Mountain", lat:44.8800, lon:-72.5067 },
+    { name:"Domey's Dome", lat:44.8916, lon:-72.4995 },
+    { name:"Gilpin Mountain", lat:44.9000, lon:-72.5000 },
+
+    // Jay Peak area
+    { name:"Jay Camp", lat:44.9138, lon:-72.5103 },
+    { name:"Jay Peak", lat:44.9240, lon:-72.5254 },
+    { name:"Big Jay", lat:44.9300, lon:-72.5400 },
+    { name:"Laura Woodward Shelter", lat:44.9371, lon:-72.5349 },
+    { name:"North Jay Peak", lat:44.9500, lon:-72.5250 },
+    { name:"Shooting Star Shelter", lat:44.9697, lon:-72.5117 },
+
+    // Final section to Canada
+    { name:"Burnt Mountain", lat:44.9757, lon:-72.5082 },
+    { name:"VT-105", lat:44.9869, lon:-72.5043 },
+    { name:"Carleton Mountain", lat:44.9921, lon:-72.4922 },
+    { name:"Latitude 45", lat:45.0029, lon:-72.4897 },
+    { name:"U.S./Canada Border", lat:45.0087, lon:-72.4883 },
+    { name:"Journey's End Camp", lat:45.0069, lon:-72.4793 },
+    { name:"Journey's End Trailhead", lat:45.0024, lon:-72.4658 }
+];
+
+// Draw Long Trail
+const longTrail = L.polyline(longTrailCoordinates, {
+    color: "brown",
+    weight: 4,
+    opacity: 0.85
+}).addTo(map);
+
+
+// Long Trail label
+longTrail.bindTooltip("Vermont Long Trail", {
+    sticky: true
+});
+
 </script>
+
 
 <!-- MAP LEGEND -->
 <div class="legend">
@@ -853,6 +944,8 @@ const atLayer = L.polyline(atCoordinates, {
   <span style="color:green;">●</span> 52WAV
 &nbsp;&nbsp;
   <span style="color:gold;">●</span> Appalachian Trail
+&nbsp;&nbsp;
+  <span style="color:green;">●</span> Long Trail
 </div>
 
 
