@@ -926,6 +926,42 @@ longTrail.bindTooltip("Vermont Long Trail", {
     sticky: true
 });
 
+const WorldMountainCoordinates = [
+  { name:"Mount Fuji",        lat:35.3606, lon:138.7274, elev:12388 },
+  { name:"Queenstown Hill",   lat:-45.0419, lon:168.6420, elev:2979 },
+  { name:"Wildstrubel",       lat:46.4097, lon:7.5319, elev:10676 },
+  { name:"Mount Whitney",     lat:36.5786, lon:-118.2923, elev:14505 },
+  { name:"Mount Rogers",      lat:36.6598, lon:-81.5443, elev:5729 },
+  { name:"Kung Karpo",        lat:27.9620, lon:91.8520, elev:14500 }, // Bhutan trek region (approx.)
+  { name:"Machu Picchu",      lat:-13.1631, lon:-72.5450, elev:7972 },
+  { name:"Barra Honda",       lat:10.1710, lon:-85.3430, elev:1380 }, // Barra Honda NP high point area (approx.)
+  { name:"Cerro Chato",       lat:10.4738, lon:-84.7033, elev:3740 },
+  { name:"Kilimanjaro",       lat:-3.0674, lon:37.3556, elev:19341 },
+  { name:"Healy",             lat:63.7286, lon:-148.9658, elev:5675 }, // Mount Healy, Denali NP
+  { name:"Zugspitze",         lat:47.4211, lon:10.9858, elev:9718 },
+  { name:"Clingmans Dome", lat:35.5629, lon:-83.4985, elev:6643 },
+  { name:"Mount Tamalpais", lat:37.9291, lon:-122.5778, elev:2571 },
+  { name:"Mount Rogers", lat:36.6600, lon:-81.5450, elev:5729 }
+];
+
+  // World Mountains (Purple)
+  WorldMountainCoordinates.forEach(p => {
+  L.circleMarker([p.lat, p.lon], {
+    radius: 7,
+    color: 'purple',
+    weight: 2,
+    fillColor: 'purple',
+    fillOpacity: 0.8
+  })
+  .addTo(map)
+  .bindTooltip(
+    `<b>${p.name}</b><br>${p.elev.toLocaleString()} ft<br>World Mountains`,
+    {
+      direction: 'top',
+      sticky: true
+    }
+  );
+});
 </script>
 
 
@@ -945,7 +981,9 @@ longTrail.bindTooltip("Vermont Long Trail", {
 &nbsp;&nbsp;
   <span style="color:gold;">●</span> Appalachian Trail
 &nbsp;&nbsp;
-  <span style="color:green;">●</span> Long Trail
+  <span style="color:brown;">●</span> Long Trail
+&nbsp;&nbsp;
+  <span style="color:purple;">●</span> World Mountains
 </div>
 
 
