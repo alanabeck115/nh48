@@ -940,9 +940,13 @@ const WorldMountainCoordinates = [
   { name:"Healy",             lat:63.7286, lon:-148.9658, elev:5675 }, // Mount Healy, Denali NP
   { name:"Zugspitze",         lat:47.4211, lon:10.9858, elev:9718 },
   { name:"Clingmans Dome", lat:35.5629, lon:-83.4985, elev:6643 },
-  { name:"Mount Tamalpais", lat:37.9291, lon:-122.5778, elev:2571 },
-  { name:"Mount Rogers", lat:36.6600, lon:-81.5450, elev:5729 }
+  { name:"Sulphur Mountain", lat: 51.1236, lon: -115.5558, elev: 8042},
+  { name: "Avalanche Lake", lat: 48.6562, lon: -113.7868, elev: 3905 },  
+  { name: "Sawtooth Lake", lat: 44.1722, lon: -115.0637, elev: 8435 },
+  { name: "Plateau Point", lat: 36.0933, lon: -112.1161, elev: 3789 },
+  { name: "Mount Rogers", lat:36.6600, lon:-81.5450, elev:5729 }
 ];
+
 
   // World Mountains (Purple)
   WorldMountainCoordinates.forEach(p => {
@@ -962,6 +966,41 @@ const WorldMountainCoordinates = [
     }
   );
 });
+
+// National Parks (Dark Green)
+const NationalParks = [
+  { name: "Joshua Tree National Park", lat: 33.8734, lon: -115.9010 },
+  { name: "Yellowstone National Park", lat: 44.6148, lon: -110.5011 },
+  { name: "Yosemite National Park", lat: 37.8651, lon: -119.5383 },
+  { name: "Olympic National Park", lat: 47.8021, lon: -123.6044 },
+  { name: "Petrified Forest National Park", lat: 34.9099, lon: -109.8068 },
+  { name: "Death Valley National Park", lat: 36.2500, lon: -116.8200 },
+  { name: "Grand Canyon National Park", lat: 36.0562, lon: -112.1401 },
+  { name: "Denali National Park", lat: 63.0692, lon: -151.0070 },
+  { name: "Glacier National Park", lat: 63.0692, lon: -151.0070 },
+  { name: "Great Smoky Mountains National Park", lat: 35.6118, lon: -83.4895 },
+  { name: "Glacier National Park", lat: 48.7596, lon: -113.7870 },
+  { name: "El Pinacate Reserve", lat: 31.9117, lon: -113.5942 },
+  { name: "Banff National Park", lat: 51.4968, lon: -115.9281 },
+  { name: "Jasper National Park", lat: 52.8737, lon: -117.9543 }
+];
+
+// National Parks Layer (Dark Green)
+NationalParks.forEach(p => {
+  L.circleMarker([p.lat, p.lon], {
+    radius: 7,
+    color: 'darkgreen',
+    fillColor: 'darkgreen',
+    fillOpacity: 0.8,
+    weight: 2
+  })
+  .addTo(map)
+  .bindTooltip(
+    `<b>${p.name}</b>`,
+    { sticky: true }
+  );
+});
+
 </script>
 
 
@@ -984,6 +1023,8 @@ const WorldMountainCoordinates = [
   <span style="color:brown;">●</span> Long Trail
 &nbsp;&nbsp;
   <span style="color:purple;">●</span> World Mountains
+&nbsp;&nbsp;
+  <span style="color:darkgreen;">●</span> National Parks
 </div>
 
 
