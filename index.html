@@ -341,8 +341,9 @@ const ne67Extra = [
   { name: "Mount Redington", lat: 45.0205, lon: -70.3995, elev: 4010 },
   { name: "Spaulding Mountain", lat: 45.0030, lon: -70.3335, elev: 4010 },
   { name: "Mount Ellen", lat: 44.1606, lon: -72.9346, elev: 4083 },
-  { name: "Jay Peak", lat: 44.9231, lon: -72.5324, elev: 3968 }
+  { name: "Mount Abraham", lat: 44.1204, lon: -72.9362, elev: 4006 }
 ];
+
 
 ne67Extra.forEach(p => {
   L.circleMarker([p.lat, p.lon], {
@@ -432,7 +433,7 @@ const ne100Extra = [
   { name: "Big Jay", lat: 44.9217, lon: -72.5448, elev: 3786 },
   { name: "Jay Peak", lat: 44.9275, lon: -72.5259, elev: 3858 },
   { name: "Stratton", lat: 43.0864, lon: -72.9284, elev: 3940 },
-  { name: "Pico", lat: 43.6631, lon: -72.8423, elev: 3957 },
+  { name: "Pico Peak", lat: 43.6395, lon: -72.8362, elev: 3947 },
 
   // Maine
   { name: "South Brother", lat: 45.9272, lon: -68.9867, elev: 3970 },
@@ -780,8 +781,9 @@ const atCoordinates = [
     [43.3500, -72.8500],
     [43.5200, -72.9300], // Clarendon Gorge
     [43.6045, -72.8204], // Killington
+    [43.6395, -72.8362], // Pico
     [43.6747, -72.8392], // Maine Junction
-    [43.6686, -72.7954],   // Gifford Woods Campground
+    [43.6686, -72.7954], // Gifford Woods Campground
     [43.6500, -72.8000], // Thundering Falls
     //[43.8000, -72.7000], // Woodstock area
     [43.7167, -72.4214],  // West Hartford, VT
@@ -907,7 +909,7 @@ const longTrailCoordinates= [
     { name:"Mount Roosevelt", lat:44.1800, lon:-72.9200 },
     { name:"Mount Cleveland", lat:44.1900, lon:-72.9100 },
     { name:"Mount Ellen", lat: 44.1606, lon: -72.9346 },
-    { name:"Mount Abraham", lat:44.1180, lon:-72.9280 },
+    { name:"Mount Abraham", lat: 44.1204, lon: -72.9362},
 
     // Camel's Hump / Winooski
     { name:"Camel's Hump", lat:44.3206, lon:-72.8868 },
