@@ -1,0 +1,54 @@
+name: Build Hiking Reports
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Build
+        run: mvn clean package
+
+      - name: Generate Reports
+        run: |
+          java -cp target/classes Mavenjava.MyList
+          java -cp target/classes Mavenjava.Companions
+          java -cp target/classes Mavenjava.NH48AllMonths
+          java -cp target/classes Mavenjava.GridProgress
+
+      - name: Commit Generated Files
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+
+          git add docs/
+
+          git diff --cached --quiet || git commit -m "Auto-update reports"
+
+          git push
+
+      - name: Deploy GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - uses: actions/deploy-pages@v4
