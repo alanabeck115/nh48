@@ -329,6 +329,18 @@ public class HikeEntryForm extends JFrame {
 
         add(panel,BorderLayout.CENTER);
 
+JButton deployButton = new JButton("Deploy Website");
+
+deployButton.addActionListener(e -> {
+    triggerDeploy();
+    JOptionPane.showMessageDialog(
+        this,
+        "GitHub deployment started."
+    );
+});
+
+buttonPanel.add(deployButton);
+
     }
 
     private void runReport(Class<?> reportClass) {
