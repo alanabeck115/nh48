@@ -27,9 +27,6 @@ jobs:
           distribution: temurin
           java-version: '21'
 
-      - name: Build
-        run: mvn clean package
-
       - name: Generate Reports
         run: |
           java -cp target/classes Mavenjava.MyList
