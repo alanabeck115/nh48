@@ -38,7 +38,6 @@ jobs:
           java -cp target/classes Mavenjava.MyList
           java -cp target/classes Mavenjava.companions
           java -cp target/classes Mavenjava.NH48HtmlExport
-          java -cp target/classes Mavenjava.gridmountainsleft
           java -cp target/classes Mavenjava.alanpeaks
 
       - name: Commit Generated Files
