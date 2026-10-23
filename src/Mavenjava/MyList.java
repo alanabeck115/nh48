@@ -10,7 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class mylist {
+public class MyList {
 
     // Every mountain I've climbed
     
