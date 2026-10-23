@@ -30,11 +30,15 @@ jobs:
       - name: Build
         run: mvn clean package
 
+	- name: Verify MyList compilation
+  	run: test -f target/classes/Mavenjava/MyList.class
+
       - name: Generate Reports
         run: |
-          java -cp target/classes Mavenjava.mylist
+          java -cp target/classes Mavenjava.MyList
           java -cp target/classes Mavenjava.companions
           java -cp target/classes Mavenjava.NH48HtmlExport
+          java -cp target/classes Mavenjava.gridmountainsleft
           java -cp target/classes Mavenjava.alanpeaks
 
       - name: Commit Generated Files
@@ -55,6 +59,8 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./docs
+
+
 
       - name: Deploy GitHub Pages
         uses: actions/deploy-pages@v4
