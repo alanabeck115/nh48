@@ -48,8 +48,9 @@
         </plugin>
       </plugins>
     </pluginManagement>
-  </build>
-  
+    <sourceDirectory>src</sourceDirectory>
+</build>
+
  <dependencies>
   <dependency>
     <groupId>org.slf4j</groupId>
