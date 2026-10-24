@@ -1,8 +1,8 @@
+
 name: Build Hiking Reports
 
 on:
   workflow_dispatch:
-
   push:
     branches:
       - main
@@ -15,19 +15,8 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-24.04
+
     steps:
-    
-      # Keep your existing build and report-generation steps here.
-      # Keep the Commit Generated Files step here as well.
-
-      - name: Setup GitHub Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload GitHub Pages Artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./docs
-
       - name: Checkout
         uses: actions/checkout@v5
 
@@ -53,44 +42,38 @@ jobs:
       - name: Prepare GitHub Pages files
         run: |
           mkdir -p docs
-          find . -maxdepth 1 -name "*.html" -type f \
-            -exec cp {} docs/ \;
+          find . -maxdepth 1 -type f -name "*.html" -exec cp {} docs/ \;
           echo "Files prepared for GitHub Pages:"
           ls -la docs
-          
+          if ! find docs -maxdepth 1 -type f -name "*.html" | grep -q .; then
+            echo "ERROR: No HTML reports found in docs."
+            exit 1
+          fi
+
       - name: Commit Generated Files
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-
           git add docs/
-
           git diff --cached --quiet || git commit -m "Auto-update reports"
-
           git push
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
-
-      - name: Prepare GitHub Pages files
-        run: |
-          mkdir -p docs
-          find . -maxdepth 1 -type f -name "*.html" -exec cp {} docs/ \;
-          echo "Contents of docs:"
-          ls -la docs
 
       - name: Upload GitHub Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./docs
 
-        
   deploy:
     needs: build
     runs-on: ubuntu-24.04
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Deploy GitHub Pages
         id: deployment
