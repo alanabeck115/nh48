@@ -72,6 +72,13 @@ jobs:
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
 
+      - name: Prepare GitHub Pages files
+        run: |
+          mkdir -p docs
+          find . -maxdepth 1 -type f -name "*.html" -exec cp {} docs/ \;
+          echo "Contents of docs:"
+          ls -la docs
+
       - name: Upload GitHub Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
