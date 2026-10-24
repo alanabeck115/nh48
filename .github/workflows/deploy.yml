@@ -40,8 +40,8 @@ jobs:
       - name: Build
         run: mvn clean package
 
-	  - name: Verify MyList compilation
-  	    run: test -f target/classes/Mavenjava/MyList.class
+      - name: Verify MyList compilation
+        run: test -f target/classes/Mavenjava/MyList.class
 
       - name: Generate Reports
         run: |
