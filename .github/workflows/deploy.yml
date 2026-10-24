@@ -1,7 +1,6 @@
 name: Build Hiking Reports
 
 on:
-#Allow manual deployment
   workflow_dispatch:
 
   push:
@@ -16,12 +15,21 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-24.04
-
     steps:
+    
+      # Keep your existing build and report-generation steps here.
+      # Keep the Commit Generated Files step here as well.
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload GitHub Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./docs
 
       - name: Checkout
         uses: actions/checkout@v5
-
 
       - name: Setup Java
         uses: actions/setup-java@v5
@@ -32,9 +40,8 @@ jobs:
       - name: Build
         run: mvn clean package
 
-      - name: Verify MyList compilation
-        run: test -f target/classes/Mavenjava/MyList.class
-
+	  - name: Verify MyList compilation
+  	    run: test -f target/classes/Mavenjava/MyList.class
 
       - name: Generate Reports
         run: |
@@ -62,7 +69,14 @@ jobs:
         with:
           path: ./docs
 
-
-
+        
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
