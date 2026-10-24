@@ -1,6 +1,7 @@
 name: Build Hiking Reports
 
 on:
+#Allow manual deployment
   workflow_dispatch:
 
   push:
