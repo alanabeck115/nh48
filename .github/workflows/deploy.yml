@@ -50,6 +50,14 @@ jobs:
           java -cp target/classes Mavenjava.NH48HtmlExport
           java -cp target/classes Mavenjava.alanpeaks
 
+      - name: Prepare GitHub Pages files
+        run: |
+          mkdir -p docs
+          find . -maxdepth 1 -name "*.html" -type f \
+            -exec cp {} docs/ \;
+          echo "Files prepared for GitHub Pages:"
+          ls -la docs
+          
       - name: Commit Generated Files
         run: |
           git config user.name "github-actions"
