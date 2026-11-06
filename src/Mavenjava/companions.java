@@ -122,7 +122,7 @@ public class companions {
             if (rs.next()) {
                 return "First climb: " +
                        rs.getDate("climb_date") +
-                       " â€“ " +
+                       " –  " +
                        rs.getString("peakname");
             }
         }
@@ -151,7 +151,7 @@ public class companions {
             if (rs.next()) {
                 return "Last climb: " +
                        rs.getDate("climb_date") +
-                       " â€“ " +
+                       " –  " +
                        rs.getString("peakname");
             }
         }
