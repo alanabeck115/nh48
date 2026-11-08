@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>GridPeaks - Hike Entry</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 35px;
+            background: #f5f7fa;
+        }
+
+        h1 {
+            color: #234b35;
+        }
+
+        .form-container {
+            background: white;
+            padding: 25px;
+            max-width: 750px;
+            border-radius: 8px;
+        }
+
+        label {
+            display: block;
+            margin-top: 16px;
+            font-weight: bold;
+        }
+
+        select, input, textarea {
+            width: 100%;
+            padding: 9px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        .entry-row {
+            display: flex;
+            gap: 12px;
+            align-items: end;
+        }
+
+        .entry-row > div {
+            flex: 1;
+        }
+
+        .entry-row .new-field {
+            flex: 1;
+        }
+
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+
+        button {
+            margin-top: 24px;
+            padding: 12px 25px;
+            background: #28613d;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        a {
+            color: #28613d;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>GridPeaks - Hike Entry</h1>
+
+<div class="form-container">
+
+    <p class="success"
+       th:if="${successMessage}"
+       th:text="${successMessage}"></p>
+
+    <!-- Mountain list selection -->
+    <form method="get" action="/hike-entry">
+
+        <label>List:</label>
+
+        <select name="list"
+                onchange="this.form.submit()"
+                required>
+
+            <option value="">Select a list</option>
+
+            <option th:each="item : ${lists}"
+                    th:value="${item}"
+                    th:text="${item}"
+                    th:selected="${item == selectedList}">
+            </option>
+
+        </select>
+    </form>
+
+    <!-- Hike entry -->
+    <form method="post" action="/hike-entry/save">
+
+        <input type="hidden"
+               name="list"
+               th:value="${selectedList}">
+
+        <label>Peak:</label>
+
+        <select name="peakrank" required>
+            <option value="">Select a peak</option>
+
+            <option th:each="peak : ${peaks}"
+                    th:value="${peak.rank}"
+                    th:text="${peak.name}">
+            </option>
+        </select>
+
+        <label>User:</label>
+
+        <select name="userid" required>
+            <option value="">Select a user</option>
+
+            <option th:each="user : ${users}"
+                    th:value="${user.userid}"
+                    th:text="${user.username}">
+            </option>
+        </select>
+
+        <label>Date climbed:</label>
+        <input type="date" name="climbDate" required>
+
+        <label>Companion 1:</label>
+
+        <div class="entry-row">
+            <div>
+                <select name="companion1">
+                    <option value="">Select companion</option>
+                    <option th:each="person : ${companions}"
+                            th:value="${person}"
+                            th:text="${person}">
+                    </option>
+                </select>
+            </div>
+
+            <div class="new-field">
+                <label>New:</label>
+                <input type="text" name="newCompanion1"
+                       placeholder="New companion">
+            </div>
+        </div>
+
+        <label>Companion 2:</label>
+
+        <div class="entry-row">
+            <div>
+                <select name="companion2">
+                    <option value="">Select companion</option>
+                    <option th:each="person : ${companions}"
+                            th:value="${person}"
+                            th:text="${person}">
+                    </option>
+                </select>
+            </div>
+
+            <div class="new-field">
+                <label>New:</label>
+                <input type="text" name="newCompanion2"
+                       placeholder="New companion">
+            </div>
+        </div>
+
+        <label>Trail:</label>
+
+        <div class="entry-row">
+            <div>
+                <select name="selectedTrail">
+                    <option value="">Select trail</option>
+                    <option th:each="item : ${trails}"
+                            th:value="${item}"
+                            th:text="${item}">
+                    </option>
+                </select>
+            </div>
+
+            <div class="new-field">
+                <label>New:</label>
+                <input type="text" name="newTrail"
+                       placeholder="New trail">
+            </div>
+        </div>
+
+        <label>Comments:</label>
+
+        <textarea name="comment"
+                  rows="3"
+                  placeholder="Optional notes"></textarea>
+
+        <button type="submit">Save Hike</button>
+
+    </form>
+
+    <p><a href="/">Return to GridPeaks Home</a></p>
+    <p><a href="/hikes">View Hiking Log</a></p>
+
+</div>
+
+</body>
+</html>

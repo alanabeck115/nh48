@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>GridPeaks - My Hikes</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background: #f5f7fa;
+        }
+
+        h1 {
+            color: #234b35;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        select {
+            padding: 9px;
+            min-width: 220px;
+        }
+
+        button {
+            padding: 9px 18px;
+            background: #28613d;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 22px;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background: #28613d;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f2f5f2;
+        }
+
+        .count {
+            font-weight: bold;
+            margin-top: 18px;
+        }
+    </style>
+</head>
+
+<p style="color:green"
+   th:if="${successMessage}"
+   th:text="${successMessage}"></p>
+
+<p style="color:red"
+   th:if="${errorMessage}"
+   th:text="${errorMessage}"></p>
+   
+<body>
+
+<h1>GridPeaks - My Hikes</h1>
+
+<div class="container">
+
+    <form method="get" action="/my-hikes">
+
+        <label><strong>Select User:</strong></label>
+
+        <select name="userid" required>
+            <option value="">Select a user</option>
+
+            <option th:each="user : ${users}"
+                    th:value="${user.userid}"
+                    th:text="${user.username}"
+                    th:selected="${user.userid == selectedUserid}">
+            </option>
+        </select>
+
+        <button type="submit">View Hikes</button>
+
+    </form>
+
+    <p class="count" th:if="${selectedUserid != null}">
+        Total hikes:
+        <span th:text="${hikeCount}"></span>
+    </p>
+
+    <table th:if="${selectedUserid != null}">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Peak</th>
+            <th>List</th>
+            <th>Companions</th>
+            <th>Trail</th>
+            <th>Comments</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr th:each="hike : ${hikes}">
+            <td th:text="${hike.climb_date}"></td>
+            <td th:text="${hike.peakname}"></td>
+            <td th:text="${hike.mountain_lists}"></td>
+            <td th:text="${hike.companions}"></td>
+            <td th:text="${hike.trail}"></td>
+            <td th:text="${hike.comment}"></td>
+
+            <td>
+                <a th:href="@{/my-hikes/edit(hikeid=${hike.hikeid},userid=${selectedUserid})}">
+                    Edit
+                </a>
+
+                <form th:action="@{/my-hikes/delete}"
+                      method="post"
+                      style="display:inline"
+                      onsubmit="return confirm('Delete this hike permanently?');">
+
+                    <input type="hidden" name="hikeid"
+                           th:value="${hike.hikeid}">
+
+                    <input type="hidden" name="userid"
+                           th:value="${selectedUserid}">
+
+                    <button type="submit"
+                            style="background:#a83232;color:white;padding:5px 9px;">
+                        Delete
+                    </button>
+                </form>
+            </td>
+        </tr>
+
+        <tr th:if="${#lists.isEmpty(hikes)}">
+            <td colspan="7">No hikes found for this user.</td>
+        </tr>
+    </tbody>
+</table>
+    <p><a href="/">Return to GridPeaks Home</a></p>
+    <p><a href="/hike-entry">Enter a New Hike</a></p>
+
+</div>
+
+</body>
+</html>

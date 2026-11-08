@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>GridPeaks Hikers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 35px;
+            background: #f3f5f2;
+        }
+        table {
+            border-collapse: collapse;
+            background: white;
+            width: 450px;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+        th {
+            background: #28613d;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<h1>GridPeaks Hikers</h1>
+
+<a href="/">Home</a>
+
+<h2>Registered Hikers</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>User ID</th>
+            <th>Username</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr th:each="hiker : ${users}">
+            <td th:text="${hiker.userid}"></td>
+            <td th:text="${hiker.username}"></td>
+        </tr>
+    </tbody>
+</table>
+
+<p>Total hikers: <span th:text="${#lists.size(users)}"></span></p>
+
+</body>
+</html>

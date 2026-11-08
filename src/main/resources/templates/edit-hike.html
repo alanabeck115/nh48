@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Hike - GridPeaks</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 35px;
+            background: #f5f7fa;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            max-width: 650px;
+            border-radius: 8px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 9px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 11px 22px;
+            background: #28613d;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Edit Hike</h1>
+
+<div class="container">
+
+    <form th:action="@{/my-hikes/update}" method="post">
+
+        <input type="hidden" name="hikeid"
+               th:value="${hike.hikeid}">
+
+        <input type="hidden" name="userid"
+               th:value="${userid}">
+
+        <label>Peak:</label>
+        <select name="peakrank" required>
+            <option th:each="peak : ${peaks}"
+                    th:value="${peak.rank}"
+                    th:text="${peak.name}"
+                    th:selected="${peak.rank == hike.peakrank}">
+            </option>
+        </select>
+
+        <label>Date climbed:</label>
+        <input type="date" name="climbDate"
+               th:value="${hike.climb_date_input}" required>
+
+        <label>Companions:</label>
+        <input type="text" name="companions"
+               th:value="${hike.companions}">
+
+        <label>Trail:</label>
+        <input type="text" name="trail"
+               th:value="${hike.trail}">
+
+        <label>Comments:</label>
+        <textarea name="comment" rows="4"
+                  th:text="${hike.comment}"></textarea>
+
+        <button type="submit">Save Changes</button>
+
+    </form>
+
+    <p>
+        <a th:href="@{/my-hikes(userid=${userid})}">
+            Cancel and Return to My Hikes
+        </a>
+    </p>
+
+</div>
+
+</body>
+</html>

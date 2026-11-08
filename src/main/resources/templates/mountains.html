@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>GridPeaks Mountain Lists</title>
+</head>
+<body>
+
+<h1>GridPeaks Mountain Lists</h1>
+
+<a href="/">Home</a>
+
+<form action="/mountains" method="get">
+    <label>Select Mountain List:</label>
+
+    <select name="list" onchange="this.form.submit()">
+        <option value="">Choose a list</option>
+
+        <option th:each="item : ${lists}"
+                th:value="${item}"
+                th:text="${item}"
+                th:selected="${item == selectedList}">
+        </option>
+    </select>
+</form>
+
+<h2 th:if="${selectedList != null}"
+    th:text="'Peaks in ' + ${selectedList}">
+</h2>
+
+<table border="1" cellpadding="8">
+    <thead>
+        <tr>
+            <th>Rank</th>
+            <th>Mountain</th>
+            <th>Elevation</th>
+            <th>State</th>
+            <th>Trail</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr th:each="peak : ${peaks}">
+            <td th:text="${peak.rank}"></td>
+            <td th:text="${peak.name}"></td>
+            <td th:text="${peak.elevation}"></td>
+            <td th:text="${peak.state}"></td>
+            <td th:text="${peak.trail}"></td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
