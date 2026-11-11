@@ -15,17 +15,10 @@ public class SecurityConfig {
 
         http
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers(
-                    "/",
-                    "/hikes",
-                    "/mountains",
-                    "/css/**",
-                    "/js/**",
-                    "/images/**"
-                ).permitAll()
-                .anyRequest().authenticated()
+                .anyRequest().permitAll()
             )
-            .formLogin(form -> form.permitAll());
+            .formLogin(form -> form.disable())
+            .httpBasic(basic -> basic.disable());
 
         return http.build();
     }
