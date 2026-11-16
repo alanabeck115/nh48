@@ -1,5 +1,4 @@
-
-name: Build Hiking Reports
+﻿name: Build Hiking Reports
 
 on:
   workflow_dispatch:
@@ -19,43 +18,53 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+        with:
+          persist-credentials: true
 
       - name: Setup Java
         uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '21'
+          cache: maven
 
       - name: Build
-        run: mvn clean package
+        run: mvn -B clean package -DskipTests
 
-      - name: Verify MyList compilation
-        run: test -f target/classes/Mavenjava/MyList.class
-
-      - name: Generate Reports
+      - name: Verify Report Classes
         run: |
-          java -cp target/classes Mavenjava.MyList
-          java -cp target/classes Mavenjava.companions
-          java -cp target/classes Mavenjava.NH48HtmlExport
-          java -cp target/classes Mavenjava.alanpeaks
+          test -f target/classes/Mavenjava/MyList.class
+          test -f target/classes/Mavenjava/companions.class
+          test -f target/classes/Mavenjava/NH48HtmlExport.class
+          test -f target/classes/Mavenjava/alanpeaks.class
 
-      - name: Prepare GitHub Pages files
+      - name: Generate Hiking Reports
+        env:
+          JDBC_DATABASE_URL: ${{ secrets.NEON_JDBC_URL }}
+          DB_USERNAME: ${{ secrets.NEON_DB_USERNAME }}
+          DB_PASSWORD: ${{ secrets.NEON_DB_PASSWORD }}
+        run: |
+          mvn -B exec:java -Dexec.mainClass=Mavenjava.MyList
+          mvn -B exec:java -Dexec.mainClass=Mavenjava.companions
+          mvn -B exec:java -Dexec.mainClass=Mavenjava.NH48HtmlExport
+          mvn -B exec:java -Dexec.mainClass=Mavenjava.alanpeaks
+
+      - name: Prepare GitHub Pages
         run: |
           mkdir -p docs
           find . -maxdepth 1 -type f -name "*.html" -exec cp {} docs/ \;
-          echo "Files prepared for GitHub Pages:"
           ls -la docs
           if ! find docs -maxdepth 1 -type f -name "*.html" | grep -q .; then
-            echo "ERROR: No HTML reports found in docs."
+            echo "ERROR: No HTML reports found."
             exit 1
           fi
 
-      - name: Commit Generated Files
+      - name: Commit Generated Reports
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add docs/
-          git diff --cached --quiet || git commit -m "Auto-update reports"
+          git diff --cached --quiet || git commit -m "Auto-update hiking reports"
           git push
 
       - name: Setup GitHub Pages
@@ -69,7 +78,6 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-24.04
-
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

@@ -70,10 +70,25 @@ public class MyList {
 
     public static void main(String[] args) {
 
-        String url = "jdbc:postgresql://localhost:5432/gridpeaks";
-        String user = "postgres";
-        String password = "newStrongPassword123!";
         
+    	String url = System.getenv("JDBC_DATABASE_URL");
+    	String user = System.getenv("DB_USERNAME");
+    	String password = System.getenv("DB_PASSWORD");
+
+    	// Use local PostgreSQL when running from Eclipse
+    	if (url == null || url.isBlank()) {
+    	    url = "jdbc:postgresql://localhost:5432/gridpeaks";
+    	}
+
+    	// Keep your existing local username and password as fallbacks
+    	if (user == null || user.isBlank()) {
+    	    user = "postgres";
+    	}
+
+    	if (password == null || password.isBlank()) {
+    	    throw new IllegalStateException(
+    	        "DB_PASSWORD environment variable is not set");
+    	}
         String fileName = "myhikinglist.html";
         String[] lists = {"nh48", "ne67", "ne100", "adk46", "ne111", "52wav", "highpoint"};
 
