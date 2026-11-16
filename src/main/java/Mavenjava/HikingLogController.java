@@ -24,13 +24,10 @@ public class HikingLogController {
         String sql =
             "SELECT " +
             "h.peakrank, " +
-            "LPAD(h.monthclimbed::text, 2, '0') || '/' ||" +
-            "LPAD(h.dayclimbed::text, 2, '0') || '/' ||" +
+            "LPAD(h.monthclimbed::text, 2, '0') || '/' || " +
+            "LPAD(h.dayclimbed::text, 2, '0') || '/' || " +
+            "h.yearclimbed::text AS climb_date, " +
             "COALESCE(NULLIF(m.name, ''), h.peakname) AS mountain, " +
-            "h.yearclimbed::text AS climb_date" +
-            "h.dayclimbed, " +
-            "h.monthclimbed, " +
-            "h.yearclimbed, " +
             "u.username AS hiker, " +
             "h.companions, " +
             "h.trail, " +
