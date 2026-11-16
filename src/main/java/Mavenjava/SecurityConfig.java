@@ -1,4 +1,3 @@
-
 package Mavenjava;
 
 import org.springframework.context.annotation.Bean;
